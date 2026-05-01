@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coleção Marcos Ribeiro Simon</title>
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#C8323C">
+<meta name="apple-mobile-web-app-title" content="Coleção MRS">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta property="og:title" content="Coleção Marcos Ribeiro Simon">
+<meta property="og:description" content="Um dos mais proeminentes acervos privados de Arte Moderna Brasileira.">
+<meta property="og:image" content="icons/icon-1024.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF6F0;
+    --ivory-2:#F2EBE0;
+    --ink:#1A1A1A;
+    --ink-soft:#3D3A36;
+    --muted:#8B8580;
+    --rose:#F4DDD8;
+    --rose-deep:#E8C5BD;
+    --red:#C8323C;
+    --red-deep:#A82530;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:"EB Garamond","Cormorant Garamond",Georgia,serif;
+    font-size:18px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .lang-en{display:none}
+  body.en .lang-pt{display:none}
+  body.en .lang-en{display:inline}
+  body.en .lang-en-block{display:block}
+
+  /* === NAV === */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:22px 48px;display:flex;justify-content:space-between;align-items:center;
+    background:linear-gradient(180deg, rgba(250,246,240,.92), rgba(250,246,240,0));
+    backdrop-filter:blur(6px);
+  }
+  .nav .brand{
+    font-family:"Cormorant Garamond",serif;
+    font-size:14px;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:500;color:var(--ink);
+  }
+  .nav .menu{display:flex;gap:32px;align-items:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+  .nav .menu a{color:var(--ink-soft);text-decoration:none;transition:color .2s}
+  .nav .menu a:hover{color:var(--red)}
+  .lang-toggle{
+    border:1px solid var(--ink);background:transparent;color:var(--ink);
+    padding:6px 14px;font-size:11px;letter-spacing:.2em;cursor:pointer;
+    font-family:inherit;
+  }
+  .lang-toggle:hover{background:var(--ink);color:var(--ivory)}
+
+  /* === HERO === */
+  .hero{
+    min-height:100vh;
+    position:relative;
+  }
+  .hero-img{
+    background:var(--ivory) center/contain no-repeat;
+    background-image:url('https://assets.artworkarchive.com/image/upload/v1/user_107692/m4rgqo06xwkoyjybchjg.jpg');
+    position:relative;width:100%;height:100vh;min-height:680px;
+  }
+  .hero-img::after{
+    content:"ALFREDO VOLPI · MRS-0011";
+    position:absolute;bottom:32px;right:40px;
+    color:var(--ink-soft);font-size:11px;letter-spacing:.32em;
+    font-family:Inter,sans-serif;font-weight:300;
+  }
+
+  /* === SECTIONS === */
+  section{padding:140px 64px;position:relative}
+  .section-num{
+    font-family:"Cormorant Garamond",serif;
+    font-size:14px;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:14px;
+  }
+  .section-num::before{content:"";width:36px;height:1px;background:var(--ink)}
+  h2{
+    font-family:"Cormorant Garamond",serif;
+    font-weight:400;font-size:clamp(38px,4vw,58px);
+    line-height:1.05;letter-spacing:-.01em;margin-bottom:36px;max-width:14ch;
+  }
+  h2 em{font-style:italic;color:var(--red);font-weight:500}
+  .lead{font-size:22px;line-height:1.55;color:var(--ink-soft);max-width:62ch;font-style:italic}
+  .body-copy{font-size:18px;line-height:1.7;color:var(--ink);max-width:62ch}
+  .body-copy p + p{margin-top:18px}
+
+  /* === SOBRE === */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative}
+  .about::before{
+    content:"";position:absolute;top:-60px;right:-64px;width:280px;height:280px;
+    background:var(--rose);clip-path:polygon(100% 0,100% 100%,0 0);
+    opacity:.6;z-index:0;
+  }
+  .about > *{position:relative;z-index:1}
+  .institutions{margin-top:48px;padding-top:32px;border-top:1px solid rgba(26,26,26,.15)}
+  .institutions-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;font-family:Inter,sans-serif;font-weight:300}
+  .institutions-list{display:flex;flex-wrap:wrap;gap:8px 32px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:20px;color:var(--ink-soft)}
+  .institutions-list span{position:relative}
+  .institutions-list span:not(:last-child)::after{content:"·";color:var(--muted);margin-left:32px;font-style:normal;position:absolute;right:-32px}
+
+  /* === VOLPI === */
+  .volpi{
+    background:var(--rose);color:var(--ink);
+    padding:160px 64px;
+    position:relative;overflow:hidden;
+  }
+  .volpi::before{
+    content:"";position:absolute;top:0;left:0;width:0;height:0;
+    border-left:280px solid var(--red);
+    border-bottom:280px solid transparent;
+    opacity:.85;
+  }
+  .volpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative}
+  .volpi h2{color:var(--ink)}
+  .volpi h2 em{color:var(--red)}
+  .volpi .body-copy{color:var(--ink-soft)}
+  .volpi-stat{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(140px,14vw,220px);
+    font-weight:300;line-height:.85;color:var(--red);
+    letter-spacing:-.05em;margin-bottom:8px;
+  }
+  .volpi-stat-label{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);opacity:.6}
+
+  /* === GALERIA DESTAQUES === */
+  .featured{padding:160px 64px}
+  .featured-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:48px;margin-bottom:80px}
+  .featured-head .lead{margin-top:24px}
+  .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:28px;row-gap:80px}
+  .work{position:relative}
+  .work img{display:block;width:100%;height:auto;background:var(--ivory-2)}
+  .work-meta{margin-top:18px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;line-height:1.7}
+  .work-meta .artist{color:var(--ink);font-weight:500;display:block;margin-bottom:4px}
+  .work-meta .title{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:17px;letter-spacing:.02em;text-transform:none;color:var(--ink-soft);display:block;margin:6px 0}
+  .work-meta .info{color:var(--muted);font-size:11px}
+
+  /* layout patterns */
+  .w-12{grid-column:span 12}
+  .w-7{grid-column:span 7}
+  .w-5{grid-column:span 5}
+  .w-6{grid-column:span 6}
+  .w-4{grid-column:span 4}
+  .w-3{grid-column:span 3}
+  .work.tall img{aspect-ratio:3/4;object-fit:cover}
+  .work.wide img{aspect-ratio:16/10;object-fit:cover}
+  .work.square img{aspect-ratio:1/1;object-fit:cover}
+
+  /* === CURADORIA === */
+  .curators{
+    background:var(--ivory-2);padding:140px 64px;position:relative;
+  }
+  .curators::after{
+    content:"";position:absolute;bottom:0;right:0;width:280px;height:280px;
+    background:var(--rose);clip-path:polygon(100% 0,100% 100%,0 100%);
+  }
+  .curators-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;position:relative;z-index:1}
+  .curator-list{margin-top:32px}
+  .curator-list li{
+    list-style:none;padding:22px 0;border-top:1px solid rgba(26,26,26,.15);
+    display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:24px;
+  }
+  .curator-list li:last-child{border-bottom:1px solid rgba(26,26,26,.15)}
+  .curator-list .name{font-family:"Cormorant Garamond",serif;font-size:24px;font-style:italic}
+  .curator-list .essay{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+  /* === ACESSO === */
+  .access{
+    padding:160px 64px;text-align:center;position:relative;overflow:hidden;
+  }
+  .access::before{
+    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:920px;height:920px;
+    background:var(--rose);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);
+    opacity:.45;z-index:0;
+  }
+  .access > *{position:relative;z-index:1}
+  .access h2{margin:0 auto 24px;text-align:center;max-width:18ch}
+  .access .lead{margin:0 auto 48px}
+  .btn{
+    display:inline-block;padding:18px 38px;
+    background:var(--ink);color:var(--ivory);text-decoration:none;
+    font-size:13px;letter-spacing:.24em;text-transform:uppercase;
+    font-family:Inter,sans-serif;font-weight:400;
+    transition:all .2s;border:1px solid var(--ink);
+  }
+  .btn:hover{background:transparent;color:var(--ink)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--ivory)}
+  .btn-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* === FOOTER === */
+  footer{
+    background:var(--ink);color:rgba(250,246,240,.7);
+    padding:80px 64px 40px;
+  }
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px}
+  footer h4{
+    font-family:"Cormorant Garamond",serif;color:var(--ivory);
+    font-size:14px;letter-spacing:.24em;text-transform:uppercase;
+    font-weight:500;margin-bottom:20px;
+  }
+  footer .brand-foot{font-size:24px;font-style:italic;font-family:"Cormorant Garamond",serif;color:var(--ivory);margin-bottom:14px}
+  footer p{font-size:14px;line-height:1.7}
+  footer .copy{
+    border-top:1px solid rgba(250,246,240,.15);padding-top:32px;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  }
+
+  /* responsive */
+  @media (max-width: 900px){
+    body{font-size:16px}
+    .nav{padding:14px 20px}
+    .nav .brand{font-size:11px;letter-spacing:.18em}
+    .nav .menu{display:none}
+    .nav .menu.mobile-open{
+      display:flex;flex-direction:column;gap:0;
+      position:fixed;top:0;left:0;right:0;bottom:0;
+      background:var(--ivory);padding:80px 24px 24px;z-index:60;
+    }
+    .nav .menu.mobile-open a{
+      padding:18px 0;border-bottom:1px solid rgba(26,26,26,.1);
+      font-size:15px;letter-spacing:.16em;
+    }
+    .nav-burger{
+      display:flex;flex-direction:column;gap:5px;
+      background:transparent;border:none;cursor:pointer;padding:8px;
+    }
+    .nav-burger span{display:block;width:24px;height:1.5px;background:var(--ink)}
+    .hero{min-height:auto}
+    .hero-img{height:80vh;min-height:520px;background-size:contain;background-position:center}
+    .hero-img::after{bottom:18px;right:20px;font-size:9px;letter-spacing:.24em}
+    section,.featured,.curators,.access,.volpi{padding:72px 24px}
+    .about,.curators-grid,.volpi-grid{grid-template-columns:1fr;gap:32px}
+    .about::before, .curators::after{display:none}
+    h2{font-size:34px;max-width:none}
+    .lead{font-size:18px}
+    .body-copy{font-size:16px}
+    .section-num{font-size:11px;letter-spacing:.24em}
+    .featured-head{grid-template-columns:1fr;gap:24px;margin-bottom:40px}
+    .gallery{grid-template-columns:1fr;gap:48px;row-gap:48px}
+    .w-12,.w-7,.w-6,.w-5,.w-4,.w-3{grid-column:span 1}
+    .work img{aspect-ratio:auto !important;height:auto}
+    .work.tall img, .work.wide img, .work.square img{aspect-ratio:auto !important}
+    .work-meta{font-size:11px;letter-spacing:.12em}
+    .work-meta .title{font-size:15px}
+    .volpi::before{border-left-width:140px;border-bottom-width:140px}
+    .volpi-stat{font-size:120px}
+    .curator-list li{grid-template-columns:1fr;gap:6px;padding:18px 0}
+    .curator-list .name{font-size:20px}
+    .curator-list .essay{font-size:11px}
+    .access h2{font-size:34px}
+    .access::before{width:480px;height:480px}
+    .btn-row{flex-direction:column;gap:10px;align-items:stretch}
+    .btn{padding:16px 24px;text-align:center;font-size:11px}
+    footer{padding:56px 24px 32px}
+    .footer-grid{grid-template-columns:1fr;gap:32px;margin-bottom:40px}
+    footer .copy{flex-direction:column;gap:12px;text-align:center;font-size:10px}
+  }
+  @media (min-width: 901px){
+    .nav-burger{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="brand">Coleção Marcos Ribeiro Simon</div>
+  <button class="nav-burger" onclick="document.querySelector('.nav .menu').classList.toggle('mobile-open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="menu">
+    <a href="#colecao" onclick="document.querySelector('.nav .menu').classList.remove('mobile-open')"><span class="lang-pt">A Coleção</span><span class="lang-en">The Collection</span></a>
+    <a href="#volpi" onclick="document.querySelector('.nav .menu').classList.remove('mobile-open')">Volpi</a>
+    <a href="#obras" onclick="document.querySelector('.nav .menu').classList.remove('mobile-open')"><span class="lang-pt">Obras</span><span class="lang-en">Works</span></a>
+    <a href="#livro" onclick="document.querySelector('.nav .menu').classList.remove('mobile-open')"><span class="lang-pt">Livro</span><span class="lang-en">Book</span></a>
+    <a href="#acesso" class="cta" onclick="document.querySelector('.nav .menu').classList.remove('mobile-open')"><span class="lang-pt">Acesso</span><span class="lang-en">Access</span></a>
+    <button class="lang-toggle" onclick="document.body.classList.toggle('en')">PT / EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img" aria-hidden="true"></div>
+</section>
+
+<!-- SOBRE -->
+<section id="colecao" class="about">
+  <div>
+    <div class="section-num">01 · <span class="lang-pt">A Coleção</span><span class="lang-en">The Collection</span></div>
+    <h2><span class="lang-pt">Um dos mais proeminentes acervos privados de Arte Moderna Brasileira.</span><span class="lang-en">One of the most prominent private collections of Brazilian Modern Art.</span></h2>
+  </div>
+  <div>
+    <div class="body-copy">
+      <p><span class="lang-pt">Composta por mais de 300 obras, a coleção abarca nomes como Candido Portinari, Tarsila do Amaral, Ismael Nery, José Pancetti, Hermelindo Fiaminghi, Lygia Clark, Hélio Oiticica e Mira Schendel. Constitui ainda uma referência global da produção de Alfredo Volpi, reunindo 75 pinturas do artista ítalo-brasileiro.</span><span class="lang-en">Comprised of over 300 works, the collection encompasses names such as Candido Portinari, Tarsila do Amaral, Ismael Nery, José Pancetti, Hermelindo Fiaminghi, Lygia Clark, Hélio Oiticica and Mira Schendel. It also stands as a global reference for the work of Alfredo Volpi, gathering 75 paintings by the Italian-Brazilian artist.</span></p>
+      <p><span class="lang-pt">Nos últimos dois anos, mais de 50 obras foram cedidas a exposições em instituições como o Guggenheim Bilbao, o Musée du Luxembourg e a Neue Nationalgalerie em Berlim. Várias peças do acervo integraram mostras históricas: <em>As Moças de Arcozelo</em>, de Portinari, esteve na individual do artista no MoMA em 1940; obras de Lygia Clark e Mira Schendel marcaram presença nas individuais que o MoMA e a Tate dedicaram às artistas em 2014.</span><span class="lang-en">Over the past two years, more than 50 works have been loaned to exhibitions at institutions including the Guggenheim Bilbao, the Musée du Luxembourg, and the Neue Nationalgalerie in Berlin. Several pieces from the collection have featured in historical shows: Portinari's <em>As Moças de Arcozelo</em> was part of the artist's solo exhibition at MoMA in 1940; works by Lygia Clark and Mira Schendel were included in the solo retrospectives MoMA and Tate dedicated to each artist in 2014.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- VOLPI -->
+<section id="volpi" class="volpi">
+  <div class="volpi-grid">
+    <div>
+      <div class="section-num" style="color:rgba(250,246,240,.5)"><span style="background:rgba(250,246,240,.4)"></span>02 · Alfredo Volpi</div>
+      <h2><span class="lang-pt"><em>Cromoterapia</em>: a joia da coleção.</span><span class="lang-en"><em>Chromotherapy</em>: the jewel of the collection.</span></h2>
+      <div class="body-copy">
+        <p><span class="lang-pt">Volpi é, com toda certeza, a grande referência da coleção. De suas características ímpares — cores marcantes, traços inatos, sensorial despertado pelas têmperas — nasceu o que Marcos chama de "cromoterapia".</span><span class="lang-en">Volpi is, with absolute certainty, the great reference of the collection. From his singular qualities — striking colors, instinctive brushstrokes, the sensorial awakening of his temperas — emerged what Marcos calls "chromotherapy."</span></p>
+        <p><span class="lang-pt">Após o primeiro Volpi, outras 74 obras se juntaram ao acervo, fazendo deste o maior conjunto privado dedicado ao mestre.</span><span class="lang-en">After the first Volpi, another 74 works joined the collection, making this the largest private body of work dedicated to the master.</span></p>
+      </div>
+    </div>
+    <div>
+      <div class="volpi-stat">75</div>
+      <div class="volpi-stat-label"><span class="lang-pt">Obras de Alfredo Volpi · 1896–1988</span><span class="lang-en">Works by Alfredo Volpi · 1896–1988</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="obras" class="featured">
+  <div class="featured-head">
+    <div>
+      <div class="section-num">03 · <span class="lang-pt">Destaques do Acervo</span><span class="lang-en">Selected Works</span></div>
+      <h2><span class="lang-pt">Seis décadas de modernismo brasileiro.</span><span class="lang-en">Six decades of Brazilian modernism.</span></h2>
+      <p class="lead"><span class="lang-pt">Volpi, Portinari, Tarsila, Ismael Nery, Lygia Clark, Hélio Oiticica, Tomie Ohtake, Pancetti — uma seleção entre as obras do acervo.</span><span class="lang-en">Volpi, Portinari, Tarsila, Ismael Nery, Lygia Clark, Hélio Oiticica, Tomie Ohtake, Pancetti — a selection from the collection.</span></p>
+    </div>
+    <a href="#acesso" class="btn ghost"><span class="lang-pt">Ver acervo completo →</span><span class="lang-en">View full collection →</span></a>
+  </div>
+
+  <div class="gallery">
+    <!-- Portinari "As Moças de Arcozelo" — destaque principal, página inteira -->
+    <figure class="work wide w-12">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/jjywcd4umykz3t93becz.jpg" alt="Portinari - As Moças de Arcozelo" style="aspect-ratio:16/9;object-fit:cover">
+      <figcaption class="work-meta">
+        <span class="artist">Candido Portinari</span>
+        <span class="title"><em>As Moças de Arcozelo</em></span>
+        <span class="info">1940 · ÓLEO SOBRE TELA · 60 × 73 CM · MoMA, 1940</span>
+      </figcaption>
+    </figure>
+
+    <!-- Linha 2: spread editorial -->
+    <figure class="work tall w-7">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/zjtszxyqxylqwbvxhvqc.jpg" alt="Volpi">
+      <figcaption class="work-meta">
+        <span class="artist">Alfredo Volpi</span>
+        <span class="title"><em>Sem título</em></span>
+        <span class="info">MEADOS DA DÉC. 1960 · TÊMPERA SOBRE TELA · 71 × 48,5 CM</span>
+      </figcaption>
+    </figure>
+    <figure class="work square w-5">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/wit7secra27sfnk2gbd6.jpg" alt="Ismael Nery - Composição Surrealista">
+      <figcaption class="work-meta">
+        <span class="artist">Ismael Nery</span>
+        <span class="title"><em>Composição Surrealista</em></span>
+        <span class="info">CERCA DE 1928 · ÓLEO SOBRE CARTÃO · 35 × 27 CM</span>
+      </figcaption>
+    </figure>
+
+    <!-- Linha 3 -->
+    <figure class="work square w-4">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/kxs44xhjdlppgy4mwljp.jpg" alt="Volpi">
+      <figcaption class="work-meta">
+        <span class="artist">Alfredo Volpi</span>
+        <span class="title"><em>Sem título</em></span>
+        <span class="info">1965 · TÊMPERA SOBRE TELA · 32 × 47 CM</span>
+      </figcaption>
+    </figure>
+    <figure class="work square w-4">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/by7skvpi6isc0ktwvtjm.jpg" alt="Volpi - Sem título déc. 1940" style="aspect-ratio:1/1;object-fit:cover">
+      <figcaption class="work-meta">
+        <span class="artist">Alfredo Volpi</span>
+        <span class="title"><em>Sem título</em></span>
+        <span class="info">DÉC. 1940 · TÊMPERA SOBRE CARTÃO · 25 × 28,5 CM</span>
+      </figcaption>
+    </figure>
+    <figure class="work square w-4" style="display:none"></figure>
+
+    <!-- Linha 3 -->
+    <figure class="work wide w-7">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/p0ayoqu7tritdygbq3co.jpg" alt="Lygia Clark - Superfície Modulada">
+      <figcaption class="work-meta">
+        <span class="artist">Lygia Clark</span>
+        <span class="title"><em>Superfície Modulada</em></span>
+        <span class="info">1957 · MADEIRA, TINTA INDUSTRIAL · 49,5 × 94,5 CM · MoMA, 2014</span>
+      </figcaption>
+    </figure>
+    <figure class="work tall w-5">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/z3fyocbzwpkv70n5ziyu.jpg" alt="Tarsila do Amaral - Paisagem com Quinze Casas">
+      <figcaption class="work-meta">
+        <span class="artist">Tarsila do Amaral</span>
+        <span class="title"><em>Paisagem com Quinze Casas</em></span>
+        <span class="info">1965 · ÓLEO SOBRE TELA · 50 × 60 CM</span>
+      </figcaption>
+    </figure>
+
+    <!-- Linha 4: trio -->
+    <figure class="work square w-4">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/mhwt9q9mvojeonu9pvx4.jpg" alt="Hélio Oiticica - Metaesquema II">
+      <figcaption class="work-meta">
+        <span class="artist">Hélio Oiticica</span>
+        <span class="title"><em>Metaesquema II</em></span>
+        <span class="info">1958 · GUACHE SOBRE CARTÃO · 42 × 48,5 CM</span>
+      </figcaption>
+    </figure>
+    <figure class="work square w-4">
+      <img src="https://assets.artworkarchive.com/image/upload/v1/user_107692/qookpmp5o0lxnlxgfuei.jpg" alt="Pancetti - Farol da Barra">
+      <figcaption class="work-meta">
+        <span class="artist">José Pancetti</span>
+        <span class="title"><em>Farol da Barra</em></span>
+        <span class="info">1954 · ÓLEO SOBRE TELA · 38 × 55 CM</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CURADORIA / LIVRO -->
+<section id="livro" class="curators">
+  <div class="curators-grid">
+    <div>
+      <div class="section-num">04 · <span class="lang-pt">O Livro</span><span class="lang-en">The Book</span></div>
+      <h2><span class="lang-pt">Um livro-presente, em parceria com grandes nomes da curadoria.</span><span class="lang-en">A book-as-gift, in partnership with leading curatorial voices.</span></h2>
+      <p class="lead"><span class="lang-pt">Publicado em 2023 como homenagem aos 80 anos de Marcos, o livro reúne ensaios inéditos sobre a coleção e seu eixo Volpi.</span><span class="lang-en">Published in 2023 as a tribute to Marcos's 80th birthday, the book gathers original essays on the collection and its Volpi axis.</span></p>
+    </div>
+    <div>
+      <ul class="curator-list">
+        <li><span class="name">Camila Yunes Guarita</span><span class="essay"><span class="lang-pt">Apresentação</span><span class="lang-en">Foreword</span></span></li>
+        <li><span class="name">Paulo Herkenhoff</span><span class="essay"><span class="lang-pt">Coleção de Tempos</span><span class="lang-en">A Collection of Times</span></span></li>
+        <li><span class="name">Denise Mattar</span><span class="essay"><span class="lang-pt">Afinidades Eletivas</span><span class="lang-en">Elective Affinities</span></span></li>
+        <li><span class="name">Paulo Miyada</span><span class="essay"><span class="lang-pt">Cor é Acontecimento</span><span class="lang-en">Color Is an Occurrence</span></span></li>
+        <li><span class="name">Yuri Quevedo</span><span class="essay"><span class="lang-pt">Articulações em torno de uma matriz quadrada</span><span class="lang-en">Elaborations on a Square Matrix</span></span></li>
+        <li><span class="name">Rodrigo de Castro</span><span class="essay"><span class="lang-pt">Descoberta da Obra</span><span class="lang-en">The Discovery of the Work</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ACESSO -->
+<section id="acesso" class="access">
+  <div class="section-num" style="justify-content:center"><span class="lang-pt">Acesso Restrito</span><span class="lang-en">Restricted Access</span></div>
+  <h2><span class="lang-pt">Solicite acesso ao <em>livro</em> e ao <em>acervo</em> completos.</span><span class="lang-en">Request access to the full <em>book</em> and <em>collection</em>.</span></h2>
+  <p class="lead"><span class="lang-pt">A versão digital do livro e o catálogo completo do acervo estão disponíveis sob aprovação. Curadores, pesquisadores e instituições podem solicitar credenciais.</span><span class="lang-en">The digital version of the book and the full catalog of the collection are available upon approval. Curators, researchers, and institutions may request credentials.</span></p>
+  <div class="btn-row">
+    <a href="#" class="btn" onclick="event.preventDefault();document.getElementById('access-modal').classList.add('open')"><span class="lang-pt">Solicitar acesso</span><span class="lang-en">Request access</span></a>
+    <a href="#" class="btn ghost" onclick="event.preventDefault();document.getElementById('login-modal').classList.add('open')"><span class="lang-pt">Já tenho conta · Entrar</span><span class="lang-en">I have an account · Sign in</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="brand-foot">Coleção Marcos Ribeiro Simon</div>
+    </div>
+    <div>
+      <h4><span class="lang-pt">Navegação</span><span class="lang-en">Sections</span></h4>
+      <p><a href="#colecao" style="color:inherit;text-decoration:none"><span class="lang-pt">A Coleção</span><span class="lang-en">The Collection</span></a></p>
+      <p><a href="#volpi" style="color:inherit;text-decoration:none">Volpi</a></p>
+      <p><a href="#obras" style="color:inherit;text-decoration:none"><span class="lang-pt">Obras</span><span class="lang-en">Works</span></a></p>
+      <p><a href="#livro" style="color:inherit;text-decoration:none"><span class="lang-pt">Livro</span><span class="lang-en">Book</span></a></p>
+    </div>
+    <div>
+      <h4><span class="lang-pt">Acesso</span><span class="lang-en">Access</span></h4>
+      <p><a href="#acesso" style="color:inherit;text-decoration:none"><span class="lang-pt">Solicitar credenciais</span><span class="lang-en">Request credentials</span></a></p>
+      <p><a href="#" style="color:inherit;text-decoration:none"><span class="lang-pt">Entrar</span><span class="lang-en">Sign in</span></a></p>
+    </div>
+    <div>
+      <h4><span class="lang-pt">Contato</span><span class="lang-en">Contact</span></h4>
+      <p>info@colecaomrs.com</p>
+    </div>
+  </div>
+  <div class="copy">
+    <span>© 2026 Coleção Marcos Ribeiro Simon</span>
+    <span><span class="lang-pt">Todos os direitos reservados</span><span class="lang-en">All rights reserved</span></span>
+  </div>
+</footer>
+
+<!-- ACCESS REQUEST MODAL -->
+<div id="access-modal" class="modal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="document.getElementById('access-modal').classList.remove('open')" aria-label="Fechar">×</button>
+    <div class="modal-eyebrow"><span class="lang-pt">Acesso Restrito</span><span class="lang-en">Restricted Access</span></div>
+    <h3 class="modal-title"><span class="lang-pt">Solicitar acesso ao acervo</span><span class="lang-en">Request access to the collection</span></h3>
+    <p class="modal-desc"><span class="lang-pt">Sua solicitação será analisada manualmente. Você receberá um email de confirmação assim que for aprovada.</span><span class="lang-en">Your request will be reviewed manually. You will receive a confirmation email once approved.</span></p>
+    <form class="modal-form" onsubmit="event.preventDefault();document.getElementById('access-modal').classList.remove('open');alert('Mockup: solicitação enviada (será integrada ao Supabase + Resend no app real)')">
+      <label>
+        <span class="lang-pt">Nome completo</span><span class="lang-en">Full name</span>
+        <input required type="text" name="name" placeholder="—">
+      </label>
+      <label>
+        <span>Email</span>
+        <input required type="email" name="email" placeholder="—">
+      </label>
+      <label>
+        <span class="lang-pt">Profissão / Função</span><span class="lang-en">Profession / Role</span>
+        <select required name="profession">
+          <option value="">—</option>
+          <option><span class="lang-pt">Curador(a)</span></option>
+          <option>Pesquisador(a) / Researcher</option>
+          <option>Galerista / Gallerist</option>
+          <option><span class="lang-pt">Instituição (museu, fundação)</span></option>
+          <option>Colecionador(a) / Collector</option>
+          <option>Imprensa / Press</option>
+          <option>Outro / Other</option>
+        </select>
+      </label>
+      <label>
+        <span class="lang-pt">Instituição / Empresa (opcional)</span><span class="lang-en">Institution / Company (optional)</span>
+        <input type="text" name="institution" placeholder="—">
+      </label>
+      <label>
+        <span class="lang-pt">Motivo da solicitação</span><span class="lang-en">Reason for the request</span>
+        <textarea required name="reason" rows="4" placeholder="—"></textarea>
+      </label>
+      <button type="submit" class="btn"><span class="lang-pt">Enviar solicitação</span><span class="lang-en">Submit request</span></button>
+      <p class="modal-fine"><span class="lang-pt">Ao enviar, você concorda com o uso de seus dados exclusivamente para fins de avaliação do pedido de acesso.</span><span class="lang-en">By submitting, you agree to the use of your data exclusively for the evaluation of your access request.</span></p>
+    </form>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="login-modal" class="modal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="document.getElementById('login-modal').classList.remove('open')" aria-label="Fechar">×</button>
+    <div class="modal-eyebrow"><span class="lang-pt">Entrar</span><span class="lang-en">Sign in</span></div>
+    <h3 class="modal-title"><span class="lang-pt">Acesse com seu email</span><span class="lang-en">Access with your email</span></h3>
+    <p class="modal-desc"><span class="lang-pt">Enviaremos um link mágico para o email já aprovado. Sem senhas.</span><span class="lang-en">We will send a magic link to your approved email. No passwords.</span></p>
+    <form class="modal-form" onsubmit="event.preventDefault();alert('Mockup: link mágico enviado para seu email')">
+      <label>
+        <span>Email</span>
+        <input required type="email" name="email" placeholder="—">
+      </label>
+      <button type="submit" class="btn"><span class="lang-pt">Receber link de acesso</span><span class="lang-en">Send access link</span></button>
+      <p class="modal-fine"><span class="lang-pt">Não tem acesso? <a href="#" onclick="event.preventDefault();document.getElementById('login-modal').classList.remove('open');document.getElementById('access-modal').classList.add('open')">Solicitar acesso</a></span><span class="lang-en">Don't have access? <a href="#" onclick="event.preventDefault();document.getElementById('login-modal').classList.remove('open');document.getElementById('access-modal').classList.add('open')">Request access</a></span></p>
+    </form>
+  </div>
+</div>
+
+<style>
+  .modal{position:fixed;inset:0;background:rgba(26,26,26,.45);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:100;padding:24px}
+  .modal.open{display:flex}
+  .modal-card{
+    background:var(--ivory);max-width:520px;width:100%;
+    padding:48px 48px 40px;position:relative;
+    box-shadow:0 24px 64px rgba(26,26,26,.18);
+    max-height:92vh;overflow-y:auto;
+  }
+  .modal-card::before{content:"";position:absolute;top:0;left:0;width:120px;height:120px;background:var(--rose);clip-path:polygon(0 0,100% 0,0 100%);opacity:.45}
+  .modal-card > *{position:relative}
+  .modal-close{position:absolute;top:14px;right:18px;background:transparent;border:none;font-size:28px;cursor:pointer;color:var(--ink-soft);font-family:inherit;line-height:1;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+  .modal-close:hover{color:var(--red)}
+  .modal-eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:12px;font-family:Inter,sans-serif;font-weight:400}
+  .modal-title{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:400;line-height:1.1;margin-bottom:14px;letter
